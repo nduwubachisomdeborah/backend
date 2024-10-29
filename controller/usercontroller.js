@@ -3,9 +3,9 @@ const bcrypt = require("bcryptjs");
 const user = require("../model/user");
 
 const Login = asyncHandler(async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
   try {
-    const loginUser = await user.findOne({ username });
+    const loginUser = await user.findOne({ email });
     if (!loginUser) {
       res.status(709).json({
         message: "No User Found",
